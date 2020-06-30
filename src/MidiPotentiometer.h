@@ -3,6 +3,8 @@
 #include <Arduino.h>
 
 #include "Potentiometer.h"
+#include "log.h"
+#include "midi.h"
 
 class MidiPotentiometer : public Potentiometer {
   int channel;

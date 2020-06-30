@@ -10,9 +10,11 @@
 #ifdef DEBUG 
   #define IFDEBUG(x) x
   #define IFNDEBUG(x)
+  #define DBG(x, ...) println(x, ##__VA_ARGS__)
 #else 
   #define IFDEBUG(x)
-  #define IFNDEBUG(x) x
+  #define IFNDEBUG(x, ...) x
+  #define DBG(x, ...)
 #endif
 
 #endif

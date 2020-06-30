@@ -7,6 +7,6 @@ void MidiPotentiometer::onChange(int value) {
   if (midiValue == lastMidiValue) return;
   lastMidiValue = midiValue;
 
-  println("MidiPotentiometer [%i] %i", pin, midiValue);
-
+  DBG("MidiPotentiometer [%i] %i", pin, midiValue);
+  sendMIDI(0xB, channel, control, midiValue);
 }
