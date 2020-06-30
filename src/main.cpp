@@ -9,19 +9,27 @@ void p(char *fmt, ... ){
   Serial.println(buf);
 }
 
+BaseComponent* components[] = {
+  // DECK LEFT
+  new Potentiometer(A0), // Volume
+  new Potentiometer(A1), // Low
+  new Potentiometer(A2), // Mid
+  new Potentiometer(A3), // High
+  new Potentiometer(A4), // Gain 
+  new ClickablePotentiometer(A5, 2) // FX1
+};
 
-void setup() {
+void setup() { 
   Serial.begin(115200);
+
+  for (auto& component : components) {
+    component->setup();
+  }
 }
 
 
-Potentiometer* poti = new Potentiometer(A0);
-
 void loop() {
-  //for (auto& potentiometer : potentiometers) {
-  //  processPotentiometer(&potentiometer);
-  //}
-  //
-  
-  poti->process();
+  for (auto& component : components) {
+    component->process();
+  }
 }

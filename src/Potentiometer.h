@@ -2,13 +2,14 @@
 
 #include <Arduino.h>
 
+#include "BaseComponent.h"
 #include "log.h"
 
-class Potentiometer {
+class Potentiometer : public BaseComponent {
   public:
     int pin;
-    int smoothedValue = 0;
-    int lastMidiValue = 0;
+    int smoothedValue = -1;
+    int lastMidiValue = -1;
 
     Potentiometer(int pin);
     void setup();
