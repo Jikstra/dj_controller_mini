@@ -17,4 +17,5 @@ class ClickablePotentiometer : public Potentiometer {
     ClickablePotentiometer(int pinPotentiometer, int pinButton);
     void setup();
     void process();
+    void onChange();
 };

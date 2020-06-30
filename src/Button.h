@@ -8,3 +8,4 @@ ButtonState buttonState(int pinValue, bool* wasPressed,  unsigned long* lastFlak
 char* buttonStateToString(ButtonState buttonState);
 bool buttonToggle(ButtonState buttonState, bool* toggle);
 
+

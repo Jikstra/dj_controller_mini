@@ -1,4 +1,4 @@
 #include <Arduino.h>
 
-#include "Potentiometer.h"
+#include "MidiPotentiometer.h"
 #include "ClickablePotentiometer.h"

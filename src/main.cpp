@@ -11,12 +11,12 @@ void p(char *fmt, ... ){
 
 BaseComponent* components[] = {
   // DECK LEFT
-  new Potentiometer(A0), // Volume
-  new Potentiometer(A1), // Low
-  new Potentiometer(A2), // Mid
-  new Potentiometer(A3), // High
-  new Potentiometer(A4), // Gain 
-  new ClickablePotentiometer(A5, 2) // FX1
+  new MidiPotentiometer(A0, 1, 0), // Volume
+  new MidiPotentiometer(A1, 2, 0), // Low
+  new MidiPotentiometer(A2, 3, 0), // Mid
+  new MidiPotentiometer(A3, 4, 0), // High
+  new MidiPotentiometer(A4, 5, 0), // Gain 
+  //new ClickablePotentiometer(A5, 2) // FX1
 };
 
 void setup() { 

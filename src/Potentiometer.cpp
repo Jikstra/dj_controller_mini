@@ -13,10 +13,7 @@ void Potentiometer::process() {
   if (smoothedDifference == 0) return;
   smoothedValue += smoothedDifference;
 
-  int midiValue = map(value, 0, 1023, 0, 127);
-  if (midiValue == lastMidiValue) return;
-  lastMidiValue = midiValue;
+  //println("Potentiometer [%i] %i", pin, value);
 
-
-  println("%i", midiValue);
+  onChange(value);
 }
