@@ -2,6 +2,7 @@
 
 BaseComponent* components[] = {
   // DECK LEFT
+  new RotaryEncoder(2, 4),
   new MidiPotentiometer(A0, 1, 0), // Volume
   new MidiPotentiometer(A1, 2, 0), // Low
   new MidiPotentiometer(A2, 3, 0), // Mid
@@ -12,7 +13,6 @@ BaseComponent* components[] = {
 
 void setup() { 
   Serial.begin(115200);
-
   for (auto& component : components) {
     component->setup();
   }
