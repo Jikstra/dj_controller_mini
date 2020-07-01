@@ -2,7 +2,8 @@
 
 BaseComponent* components[] = {
   // DECK LEFT
-  new RotaryEncoder(2, 4),
+  new ClickableRotaryEncoder(2, 3, 4),
+  //new RotaryEncoder(2, 4),
   new MidiPotentiometer(A0, 1, 0), // Volume
   new MidiPotentiometer(A1, 2, 0), // Low
   new MidiPotentiometer(A2, 3, 0), // Mid

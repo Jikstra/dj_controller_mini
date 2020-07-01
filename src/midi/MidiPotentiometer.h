@@ -2,9 +2,9 @@
 
 #include <Arduino.h>
 
-#include "Potentiometer.h"
+#include "hardware/Potentiometer.h"
 #include "log.h"
-#include "midi.h"
+#include "sendMidi.h"
 
 class MidiPotentiometer : public Potentiometer {
   int channel;

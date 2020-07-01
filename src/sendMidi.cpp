@@ -1,6 +1,4 @@
-#include "midi.h"
-
-
+#include "sendMidi.h"
 
 void sendMIDI(int command, int channel, int note, int value) {
   int status = (command << 4) + channel;

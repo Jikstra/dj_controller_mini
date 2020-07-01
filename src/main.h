@@ -1,5 +1,5 @@
 #include <Arduino.h>
 
-#include "MidiPotentiometer.h"
-#include "ClickablePotentiometer.h"
-#include "RotaryEncoder.h"
+#include "midi/MidiPotentiometer.h"
+#include "hardware/ClickablePotentiometer.h"
+#include "hardware/ClickableRotaryEncoder.h"

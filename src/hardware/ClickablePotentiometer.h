@@ -14,7 +14,7 @@ class ClickablePotentiometer : public Potentiometer {
     bool wasPressed = false;
     bool toggle = false;
     
-    ClickablePotentiometer(int pinPotentiometer, int pinButton);
+    ClickablePotentiometer(int pinPotentiomer, int pinButton);
     void setup();
     void process();
     void onChange();
