@@ -14,5 +14,6 @@ class MidiClickablePotentiometer : public ClickablePotentiometer {
   public:
     MidiClickablePotentiometer(int pin, int pin_button, int channel, int control);
     void onChange(int value);
-    void onClick();
+    void onButtonPress();
+    void onButtonRelease();
 };

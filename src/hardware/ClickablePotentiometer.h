@@ -12,11 +12,11 @@ class ClickablePotentiometer : public Potentiometer {
     int pinButton;
     unsigned long lastFlake;
     bool wasPressed = false;
-    bool toggle = false;
     
     ClickablePotentiometer(int pinPotentiomer, int pinButton);
     void setup();
     void process();
     virtual void onChange(int value) = 0;
-    virtual void onClick() = 0;
+    virtual void onButtonPress();
+    virtual void onButtonRelease();
 };

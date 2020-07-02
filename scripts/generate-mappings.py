@@ -26,7 +26,9 @@ def header():
 <MixxxControllerPreset mixxxVersion="" schemaVersion="1">
     <info/>
     <controller id="{C['DEVICE_NAME']}">
-        <scriptfiles/>
+        <scriptfiles>
+            <file filename="MiniX1.midi.js" functionprefix="MiniX1"/>
+        </scriptfiles>
         <controls>
     ''')
 
@@ -86,6 +88,76 @@ def monitorButton(ch):
             </control>
     ''')
 
+def shiftButton():
+    return(f'''
+            <control>
+                <group>[Master]</group>
+                <key>MiniX1.shiftButton</key>
+                <description>Shift button</description>
+                <status>{hexStatus(C['MIDI_COMMAND_BUTTON'], str(0))}</status>
+                <midino>{hexify(C['MIDI_CTRL_SHIFT'])}</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
+def beatJumpEncoder(ch):
+    return(f'''
+            <control>
+                <group>[Channel{int(ch, 16)}]</group>
+                <key>MiniX1.beatJumpEncoder</key>
+                <description>BeatJump Rotary Encoder</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], ch)}</status>
+                <midino>{hexify(C['MIDI_CTRL_BEAT_JUMP'])}</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
+def beatJumpButton(ch):
+    return(f'''
+            <control>
+                <group>[Channel{int(ch, 16)}]</group>
+                <key>MiniX1.beatJumpButton</key>
+                <description>BeatJump button</description>
+                <status>{hexStatus(C['MIDI_COMMAND_BUTTON'], ch)}</status>
+                <midino>{hexify(C['MIDI_CTRL_BEAT_JUMP'])}</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
+def loopEncoder(ch):
+    return(f'''
+            <control>
+                <group>[Channel{int(ch, 16)}]</group>
+                <key>MiniX1.loopEncoder</key>
+                <description>loop Encoder</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], ch)}</status>
+                <midino>{hexify(C['MIDI_CTRL_LOOP'])}</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
+def loopButton(ch):
+    return(f'''
+            <control>
+                <group>[Channel{int(ch, 16)}]</group>
+                <key>MiniX1.loopButton</key>
+                <description>Shift button</description>
+                <status>{hexStatus(C['MIDI_COMMAND_BUTTON'], ch)}</status>
+                <midino>{hexify(C['MIDI_CTRL_LOOP'])}</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
 def volumePoti(ch):
     return(f'''
             <control>
@@ -129,8 +201,24 @@ def generateFXPoti(parameter, midino):
                     <normal/>
                 </options>
             </control>
+            <control>
+                <group>[EffectRack1_EffectUnit{int(ch, 16)}_Effect{parameter}]</group>
+                <key>enabled</key>
+                <description>FX enable/disable for...</description>
+                <status>{hexStatus(C['MIDI_COMMAND_BUTTON'], ch)}</status>
+                <midino>{hexify(midino)}</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
         ''')
     return fxRate
+
+def generateFXKill(parameter, midino):
+    def fxKill(ch):
+        return('''
+        ''')
+    return fxKill
 
 def _allChannels(fnc):
     result = ''
@@ -145,6 +233,14 @@ if __name__ == '__main__':
     print(_allChannels(syncButton))
     print(_allChannels(monitorButton))
     print(_allChannels(volumePoti))
+    print(shiftButton())
+    
+    print(_allChannels(beatJumpEncoder))
+    print(_allChannels(beatJumpButton))
+
+    print(_allChannels(loopEncoder))
+    print(_allChannels(loopButton))
+    
     print(_allChannels(generateEQPoti(1, C['MIDI_CTRL_EQ_LOW'])))
     print(_allChannels(generateEQPoti(2, C['MIDI_CTRL_EQ_MID'])))
     print(_allChannels(generateEQPoti(3, C['MIDI_CTRL_EQ_HIGH'])))

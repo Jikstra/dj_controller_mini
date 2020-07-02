@@ -11,7 +11,12 @@ void MidiClickablePotentiometer::onChange(int value) {
   sendMIDI(0xB, channel, control, midiValue);
 }
 
-void MidiClickablePotentiometer::onClick() {
-  DBG("MidiClickablePotentiometer [%i] Clicked!", pin);
+void MidiClickablePotentiometer::onButtonPress() {
+  DBG("MidiClickablePotentiometer [%i] Pressed!", pin_button);
+  sendMIDI(0x9, channel, control, 0x7F);
+}
+
+void MidiClickablePotentiometer::onButtonRelease() {
+  DBG("MidiClickablePotentiometer [%i] Released!", pin_button);
   sendMIDI(0x9, channel, control, 0x00);
 }

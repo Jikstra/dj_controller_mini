@@ -14,5 +14,6 @@ void ClickablePotentiometer::process() {
 
   ButtonState button_state = buttonState(pinValue, &wasPressed, &lastFlake);
 
-  if(buttonToggle(button_state, &toggle) == true) onClick();
+  if(button_state == ButtonState::Pressed) onButtonPress();
+  if(button_state == ButtonState::Released) onButtonRelease();
 }
