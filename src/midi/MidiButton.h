@@ -5,6 +5,7 @@
 #include "hardware/Button.h"
 #include "log.h"
 #include "sendMidi.h"
+#include "constants.h"
 
 class MidiButton : public Button {
   int channel;

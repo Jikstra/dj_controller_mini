@@ -5,6 +5,7 @@
 #include "hardware/Potentiometer.h"
 #include "log.h"
 #include "sendMidi.h"
+#include "constants.h"
 
 class MidiPotentiometer : public Potentiometer {
   int channel;

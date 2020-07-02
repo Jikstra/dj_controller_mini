@@ -41,6 +41,7 @@ def main():
                             continue
                         message = mido.parse(buf)
                         print("[MIDI]", message)
+                        print("[MIDI]", message.hex())
                         output.send(message)
                 except Exception as e:
                     printException(e)

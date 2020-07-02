@@ -11,8 +11,8 @@ BaseComponent* components[] = {
   new MidiPotentiometer(         A4,         MIDI_CTRL_GAIN,      MIDI_LEFT_DECK_CHANNEL), // Gain 
   new MidiClickablePotentiometer(A5, 53,     MIDI_CTRL_FX1,       MIDI_LEFT_DECK_CHANNEL), // FX1
   new MidiButton(                23,         MIDI_CTRL_PLAY,      MIDI_LEFT_DECK_CHANNEL), // Play
-  new MidiButton(                25,         MIDI_CTRL_MONITOR,   MIDI_LEFT_DECK_CHANNEL), // Monitor
-  new MidiButton(                27,         MIDI_CTRL_SYNC,      MIDI_LEFT_DECK_CHANNEL), // Sync
+  new MidiButton(                25,         MIDI_CTRL_SYNC,      MIDI_LEFT_DECK_CHANNEL), // Monitor
+  new MidiButton(                27,         MIDI_CTRL_MONITOR,   MIDI_LEFT_DECK_CHANNEL), // Sync
 
   // RIGHT DECK
   new MidiClickableRotaryEncoder(8,  9,  10, MIDI_CTRL_BEAT_JUMP, MIDI_RIGHT_DECK_CHANNEL),
@@ -24,8 +24,8 @@ BaseComponent* components[] = {
   new MidiPotentiometer(         A10,        MIDI_CTRL_GAIN,      MIDI_RIGHT_DECK_CHANNEL), // Gain 
   new MidiClickablePotentiometer(A11, 52,    MIDI_CTRL_FX1,       MIDI_RIGHT_DECK_CHANNEL), // FX1
   new MidiButton(                22,         MIDI_CTRL_PLAY,      MIDI_RIGHT_DECK_CHANNEL), // Play
-  new MidiButton(                24,         MIDI_CTRL_MONITOR,   MIDI_RIGHT_DECK_CHANNEL), // Monitor
-  new MidiButton(                26,         MIDI_CTRL_SYNC,      MIDI_RIGHT_DECK_CHANNEL), // Sync
+  new MidiButton(                24,         MIDI_CTRL_SYNC,      MIDI_RIGHT_DECK_CHANNEL), // Monitor
+  new MidiButton(                26,         MIDI_CTRL_MONITOR,   MIDI_RIGHT_DECK_CHANNEL), // Sync
 
   new MidiButton(                37,         MIDI_CTRL_SHIFT,     MIDI_ALL_CHANNEL), // Shift
 };
