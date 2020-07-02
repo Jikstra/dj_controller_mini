@@ -44,6 +44,6 @@ class RotaryEncoder : public BaseComponent {
       RotaryEncoder(int pin_ccw, int pin_cw);
       void setup();
       void process();
-      void onTurn(Direction direction);
+      virtual void onTurn(Direction direction);
 
 };

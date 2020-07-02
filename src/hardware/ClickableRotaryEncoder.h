@@ -17,6 +17,6 @@ class ClickableRotaryEncoder : public RotaryEncoder {
       ClickableRotaryEncoder(int pin_ccw, int pin_button, int pin_cw);
       void setup();
       void process();
-      void onTurn(Direction direction);
-      void onClick();
+      virtual void onTurn(Direction direction);
+      virtual void onClick();
 };
