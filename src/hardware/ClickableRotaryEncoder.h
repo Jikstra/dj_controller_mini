@@ -18,5 +18,6 @@ class ClickableRotaryEncoder : public RotaryEncoder {
       void setup();
       void process();
       virtual void onTurn(Direction direction);
-      virtual void onClick();
+      virtual void onButtonPress();
+      virtual void onButtonRelease();
 };

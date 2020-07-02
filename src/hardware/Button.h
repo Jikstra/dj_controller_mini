@@ -4,7 +4,7 @@
 #include "BaseComponent.h"
 
 bool isBouncing(unsigned long* last_flake_millis);
-enum class ButtonState {Pressed, Unchanged, Unpressed};
+enum class ButtonState {Pressed, Unchanged, Released};
 ButtonState buttonState(int pinValue, bool* wasPressed,  unsigned long* lastFlakeMillis);
 char* buttonStateToString(ButtonState buttonState);
 bool buttonToggle(ButtonState buttonState, bool* toggle);
@@ -14,10 +14,10 @@ class Button : public BaseComponent {
     int pin_button; 
     bool button_was_pressed = false;
     unsigned long button_last_flake = -1;
-    bool button_toggle = false;
 
     Button(int pin_button);
     void setup();
     void process();
-    virtual void onClick();
+    virtual void onPress();
+    virtual void onRelease();
 };

@@ -12,5 +12,6 @@ class MidiButton : public Button {
 
   public:
     MidiButton(int pin_button, int channel, int control);
-    void onClick();
+    void onPress();
+    void onRelease();
 };

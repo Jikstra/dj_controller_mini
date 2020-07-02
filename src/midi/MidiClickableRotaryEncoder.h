@@ -13,5 +13,6 @@ class MidiClickableRotaryEncoder : public ClickableRotaryEncoder {
   public:
     MidiClickableRotaryEncoder(int pin_ccw, int pin_button, int pin_cw, int channel, int control);
     void onTurn(Direction direction);
-    void onClick();
+    void onButtonPress();
+    void onButtonRelease();
 };

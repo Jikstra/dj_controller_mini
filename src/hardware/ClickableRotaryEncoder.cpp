@@ -15,11 +15,14 @@ void ClickableRotaryEncoder::process() {
 
   ButtonState button_state = buttonState(pin_value, &button_was_pressed, &button_last_flake);
 
-  if(buttonToggle(button_state, &button_toggle) == true) {
-    onClick();
-  }
+  if(button_state == ButtonState::Pressed) onButtonPress();
+  if(button_state == ButtonState::Released) onButtonRelease();
 }
 
-void ClickableRotaryEncoder::onClick() {
-  println("ClickableRotaryEncoder [%i] Toggle!", pin_button);
+void ClickableRotaryEncoder::onButtonPress() {
+  println("ClickableRotaryEncoder [%i] Pressed!", pin_button);
+}
+
+void ClickableRotaryEncoder::onButtonRelease() {
+  println("ClickableRotaryEncoder [%i] Released!", pin_button);
 }

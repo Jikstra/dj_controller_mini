@@ -17,7 +17,7 @@ ButtonState buttonState(int pin_value, bool* was_pressed,  unsigned long* last_f
   } else if(pin_value == HIGH && *was_pressed == true){
     if(isBouncing(last_flake_millis)) return ButtonState::Unchanged;
     *was_pressed = false;
-    return ButtonState::Unpressed;
+    return ButtonState::Released;
   } else {
     return ButtonState::Unchanged;
   }
@@ -29,8 +29,8 @@ char* buttonStateToString(ButtonState button_state) {
       return "Pressed";
     case ButtonState::Unchanged:
       return "Unchanged";
-    case ButtonState::Unpressed:
-      return "Unpressed";
+    case ButtonState::Released:
+      return "Released";
     default:
       IFDEBUG(println("Invalid: %i", button_state));
       return "Invalid Enum";
@@ -57,9 +57,13 @@ void Button::process() {
   int pin_value = digitalRead(pin_button);
 
   ButtonState button_state = buttonState(pin_value, &button_was_pressed, &button_last_flake);
-  if(buttonToggle(button_state, &button_toggle) == true) onClick();
+  if(button_state == ButtonState::Pressed) onPress();
+  if(button_state == ButtonState::Released) onRelease();
 }
 
-void Button::onClick() {
-  DBG("[Button] %i Clicked!", pin_button);
+void Button::onPress() {
+  DBG("[Button] %i Pressed!", pin_button);
+}
+void Button::onRelease() {
+  DBG("[Button] %i Released!", pin_button);
 }
