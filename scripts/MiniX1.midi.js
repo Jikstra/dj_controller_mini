@@ -16,7 +16,7 @@ function isButtonPressed(value) {
 function isRotaryEncoderCW(value) {
   if (value === 127) {
     return true
-  } else if (value !== 0) {
+  } else if (value !== 1) {
     DBG('Error: Received invalid value for rotary encoder: ' + value);
   }
   return false
@@ -36,6 +36,32 @@ MiniX1.shiftButton = function(channel, control, value, status, group) {
   } else {
     MiniX1.shift = false;
     DBG('Shift released');
+  }
+}
+
+MiniX1.playButton = function(channel, control, value, status, group) {
+  if (isButtonPressed(value)) {
+    if (MiniX1.shift === true) {
+      engine.setValue(group, 'cue_default', 1) 
+    } else {
+      engine.setValue(group, 'play', !engine.getValue(group, 'play')) 
+    }
+  } else {
+    if (MiniX1.shift === true) {
+      engine.setValue(group, 'cue_default', 0)
+    }
+
+  }
+}
+
+MiniX1.syncButton = function(channel, control, value, status, group) {
+  if (isButtonPressed(value)) {
+  } else {
+    if (MiniX1.shift === true) {
+      engine.setValue(group, 'quantize', !engine.getValue(group, 'quantize'))
+    } else {
+      engine.setValue(group, 'beatsync_tempo', !engine.getValue(group, 'beatsync_tempo'))
+    }
   }
 }
 
@@ -77,7 +103,7 @@ MiniX1.loopButton = function(channel, control, value, status, group) {
     }
   } else {
     DBG('loopButton: released');
-    if (engine.getValue(group, 'rate_temp_down') === 1) {
+    if (engine.getValue(group, 'rate_temp_up') === 1) {
       engine.setValue(group, 'rate_temp_up', 0)
       engine.setValue(group, 'beats_translate_match_alignment', 1)
     } else {

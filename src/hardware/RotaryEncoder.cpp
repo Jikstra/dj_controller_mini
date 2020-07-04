@@ -58,7 +58,7 @@ Direction process_pin_state(int pin_state, int* state, int* state_index, int* st
         *state = STATE_FOLLOWUP[next_state_index];
         *state_counter = *state_counter - 1;
         
-        if (*state_counter % 2 == 0 && *state == 0b00 || *state == 0b11) {
+        if (*state_counter % 4 == 0 && *state == 0b00 || *state == 0b11) {
             *state_counter = 0;
             return Direction::CW;
         }
@@ -69,7 +69,7 @@ Direction process_pin_state(int pin_state, int* state, int* state_index, int* st
         *state = STATE_FOLLOWUP[prev_state_index];
         *state_counter = *state_counter + 1;
 
-        if (*state_counter % 2 == 0 && *state == 0b00 || *state == 0b11) {
+        if (*state_counter % 4 == 0 && *state == 0b00 || *state == 0b11) {
             *state_counter = 0;
             return Direction::CCW;
         }

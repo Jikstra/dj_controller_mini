@@ -50,12 +50,12 @@ def playButton(ch):
     return(f'''
             <control>
                 <group>[Channel{int(ch, 16)}]</group>
-                <key>play</key>
+                <key>MiniX1.playButton</key>
                 <description>Play button</description>
                 <status>{hexStatus(C['MIDI_COMMAND_BUTTON'], ch)}</status>
                 <midino>{hexify(C['MIDI_CTRL_PLAY'])}</midino>
                 <options>
-                    <normal/>
+                    <Script-Binding/>
                 </options>
             </control>
     ''')
@@ -64,12 +64,12 @@ def syncButton(ch):
     return(f'''
             <control>
                 <group>[Channel{int(ch, 16)}]</group>
-                <key>beatsync_tempo</key>
+                <key>MiniX1.syncButton</key>
                 <description>Beatsync button</description>
                 <status>{hexStatus(C['MIDI_COMMAND_BUTTON'], ch)}</status>
                 <midino>{hexify(C['MIDI_CTRL_SYNC'])}</midino>
                 <options>
-                    <normal/>
+                    <Script-Binding/>
                 </options>
             </control>
     ''')
@@ -172,6 +172,20 @@ def volumePoti(ch):
             </control>
     ''')
 
+def gainPoti(ch):
+    return(f'''
+            <control>
+                <group>[Channel{int(ch, 16)}]</group>
+                <key>pregain</key>
+                <description>Gain potentiometer</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], ch)}</status>
+                <midino>{hexify(C['MIDI_CTRL_GAIN'])}</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
 def generateEQPoti(parameter, midino):
     def eqRate(ch):
         return(f'''
@@ -233,6 +247,7 @@ if __name__ == '__main__':
     print(_allChannels(syncButton))
     print(_allChannels(monitorButton))
     print(_allChannels(volumePoti))
+    print(_allChannels(gainPoti))
     print(shiftButton())
     
     print(_allChannels(beatJumpEncoder))
