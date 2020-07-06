@@ -102,6 +102,48 @@ def shiftButton():
             </control>
     ''')
 
+def masterGainPoti():
+    return(f'''
+            <control>
+                <group>[Master]</group>
+                <key>gain</key>
+                <description>Master gain potentiometer</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], str(0))}</status>
+                <midino>{hexify(C['MIDI_CTRL_MASTER_GAIN'])}</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
+def masterHeadphoneGainPoti():
+    return(f'''
+            <control>
+                <group>[Master]</group>
+                <key>headGain</key>
+                <description>Master headphone volume potentiometer</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], str(0))}</status>
+                <midino>{hexify(C['MIDI_CTRL_MONITOR_VOLUME'])}</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
+def masterHeadphoneMixPoti():
+    return(f'''
+            <control>
+                <group>[Master]</group>
+                <key>headMix</key>
+                <description>Master headphone volume potentiometer</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], str(0))}</status>
+                <midino>{hexify(C['MIDI_CTRL_MONITOR_MIX'])}</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
 def beatJumpEncoder(ch):
     return(f'''
             <control>
@@ -248,7 +290,11 @@ if __name__ == '__main__':
     print(_allChannels(monitorButton))
     print(_allChannels(volumePoti))
     print(_allChannels(gainPoti))
+
     print(shiftButton())
+    print(masterGainPoti())
+    print(masterHeadphoneGainPoti())
+    print(masterHeadphoneMixPoti())
     
     print(_allChannels(beatJumpEncoder))
     print(_allChannels(beatJumpButton))

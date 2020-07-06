@@ -15,19 +15,24 @@ BaseComponent* components[] = {
   new MidiButton(                27,         MIDI_CTRL_MONITOR,   MIDI_LEFT_DECK_CHANNEL), // Sync
 
   // RIGHT DECK
-  new MidiClickableRotaryEncoder(8,  9,  10, MIDI_CTRL_BEAT_JUMP, MIDI_RIGHT_DECK_CHANNEL),
-  new MidiClickableRotaryEncoder(11, 12, 13, MIDI_CTRL_LOOP,      MIDI_RIGHT_DECK_CHANNEL),
-  new MidiPotentiometer(         A6,         MIDI_CTRL_VOLUME,    MIDI_RIGHT_DECK_CHANNEL), // Volume
-  new MidiPotentiometer(         A7,         MIDI_CTRL_EQ_LOW,    MIDI_RIGHT_DECK_CHANNEL), // Low
-  new MidiPotentiometer(         A8,         MIDI_CTRL_EQ_MID,    MIDI_RIGHT_DECK_CHANNEL), // Mid
-  new MidiPotentiometer(         A9,         MIDI_CTRL_EQ_HIGH,   MIDI_RIGHT_DECK_CHANNEL), // High
-  new MidiPotentiometer(         A10,        MIDI_CTRL_GAIN,      MIDI_RIGHT_DECK_CHANNEL), // Gain 
-  new MidiClickablePotentiometer(A11, 52,    MIDI_CTRL_FX1,       MIDI_RIGHT_DECK_CHANNEL), // FX1
-  new MidiButton(                22,         MIDI_CTRL_PLAY,      MIDI_RIGHT_DECK_CHANNEL), // Play
-  new MidiButton(                24,         MIDI_CTRL_SYNC,      MIDI_RIGHT_DECK_CHANNEL), // Monitor
-  new MidiButton(                26,         MIDI_CTRL_MONITOR,   MIDI_RIGHT_DECK_CHANNEL), // Sync
+  new MidiClickableRotaryEncoder(8,  9,  10, MIDI_CTRL_LOOP,           MIDI_RIGHT_DECK_CHANNEL),
+  new MidiClickableRotaryEncoder(11, 12, 13, MIDI_CTRL_BEAT_JUMP,      MIDI_RIGHT_DECK_CHANNEL),
+  new MidiPotentiometer(         A6,         MIDI_CTRL_VOLUME,         MIDI_RIGHT_DECK_CHANNEL), // Volume
+  new MidiPotentiometer(         A7,         MIDI_CTRL_EQ_LOW,         MIDI_RIGHT_DECK_CHANNEL), // Low
+  new MidiPotentiometer(         A8,         MIDI_CTRL_EQ_MID,         MIDI_RIGHT_DECK_CHANNEL), // Mid
+  new MidiPotentiometer(         A9,         MIDI_CTRL_EQ_HIGH,        MIDI_RIGHT_DECK_CHANNEL), // High
+  new MidiPotentiometer(         A10,        MIDI_CTRL_GAIN,           MIDI_RIGHT_DECK_CHANNEL), // Gain 
+  new MidiClickablePotentiometer(A11, 52,    MIDI_CTRL_FX1,            MIDI_RIGHT_DECK_CHANNEL), // FX1
+  new MidiButton(                22,         MIDI_CTRL_PLAY,           MIDI_RIGHT_DECK_CHANNEL), // Play
+  new MidiButton(                24,         MIDI_CTRL_SYNC,           MIDI_RIGHT_DECK_CHANNEL), // Monitor
+  new MidiButton(                26,         MIDI_CTRL_MONITOR,        MIDI_RIGHT_DECK_CHANNEL), // Sync
 
-  new MidiButton(                37,         MIDI_CTRL_SHIFT,     MIDI_ALL_CHANNEL), // Shift
+  new MidiButton(                37,         MIDI_CTRL_SHIFT,          MIDI_ALL_CHANNEL), // Shift
+  new MidiPotentiometer(         A12,        MIDI_CTRL_MASTER_GAIN,    MIDI_ALL_CHANNEL), // High
+  new MidiPotentiometer(         A13,        MIDI_CTRL_MONITOR_MIX,    MIDI_ALL_CHANNEL), // High
+  new MidiPotentiometer(         A14,        MIDI_CTRL_MONITOR_VOLUME, MIDI_ALL_CHANNEL), // High
+  new MidiClickableRotaryEncoder(30, 32, 34, MIDI_CTRL_BPM,            MIDI_ALL_CHANNEL),
+
 };
 
 void setup() { 

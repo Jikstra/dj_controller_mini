@@ -21,6 +21,11 @@ const int MIDI_CTRL_PLAY = 0x1e;
 const int MIDI_CTRL_SYNC = 0x1f;
 const int MIDI_CTRL_MONITOR = 0x20;
 const int MIDI_CTRL_SHIFT = 0x27;
+const int MIDI_CTRL_MASTER_GAIN = 0x50;
+const int MIDI_CTRL_MONITOR_MIX = 0x51;
+const int MIDI_CTRL_MONITOR_VOLUME = 0x52;
+const int MIDI_CTRL_BPM = 0x53;
+
 
 const int MIDI_CTRL_BEAT_JUMP = 0x28;
 const int MIDI_CTRL_LOOP = 0x29;
