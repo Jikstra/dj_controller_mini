@@ -144,6 +144,20 @@ def masterHeadphoneMixPoti():
             </control>
     ''')
 
+def bpmEncoder():
+    return(f'''
+            <control>
+                <group>[Channel0]</group>
+                <key>MiniX1.bpmEncoder</key>
+                <description>BPM Rotary Encoder</description>
+                <status>{hexStatus(C['MIDI_COMMAND_POTI'], str(0))}</status>
+                <midino>{hexify(C['MIDI_CTRL_BPM'])}</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
 def beatJumpEncoder(ch):
     return(f'''
             <control>
@@ -295,6 +309,7 @@ if __name__ == '__main__':
     print(masterGainPoti())
     print(masterHeadphoneGainPoti())
     print(masterHeadphoneMixPoti())
+    print(bpmEncoder())
     
     print(_allChannels(beatJumpEncoder))
     print(_allChannels(beatJumpButton))

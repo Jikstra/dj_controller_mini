@@ -65,6 +65,20 @@ MiniX1.syncButton = function(channel, control, value, status, group) {
   }
 }
 
+MiniX1.bpmEncoder = function(channel, control, value, status, group) {
+  channel = MiniX1.shift === false ? 1 : 2;
+  group = '[Channel' + channel + ']';
+  var adjusted_bpm = engine.getValue(group, 'bpm');
+  if (isRotaryEncoderCW(value)) {
+    adjusted_bpm = adjusted_bpm + 0.1
+  } else {
+    adjusted_bpm = adjusted_bpm - 0.1
+  }
+  DBG('bpmEncoder: ' + adjusted_bpm)
+  
+  engine.setValue(group, 'bpm', adjusted_bpm);
+}
+
 MiniX1.beatJumpEncoder = function(channel, control, value, status, group) {
   if (isRotaryEncoderCW(value) == true) {
     print("beatJumpEncoder: turned CW");
